@@ -22,10 +22,34 @@
     <script>mocha.setup('bdd')</script>
 
     <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/handlebars/handlebars.js"></script>
-    <script src="/bower_components/underscore/underscore.js"></script>
-    <script src="/bower_components/commonjs-require/commonjs-require.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/commonjs-require/commonjs-require.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
+    <script src="bower_components/foundation/js/foundation.js"></script>
+    <!-- endbower -->
+
+    <script src="/scripts/templates.js"></script>
+    <script src="/scripts/app.js"></script>
+
+    <script>
+      require('main');
+    </script>
+
+    <!-- inject:js -->
+    <script src="/tests/hello-test.js"></script>
+    <!-- endinject -->
+
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
+/foundation/js/foundation.js"></script>
     <!-- endbower -->
 
     <script src="/scripts/templates.js"></script>
