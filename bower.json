@@ -11,6 +11,7 @@
     "underscore": "~1.8.3",
     "commonjs-require": "~1.4.5",
     "backbone": "~1.2.3",
-    "font-awesome": "~4.4.0"
+    "font-awesome": "~4.4.0",
+    "foundation": "~5.5.3"
   }
 }
