@@ -4,6 +4,8 @@ import ItemCollection from 'models/item-collection';
 import TypeListView from 'views/type-list';
 
 var IndexView = BaseView.extend({
+    className: 'index-view',
+    
     initialize: function() {
         this.appsCollection = new ItemCollection();
       	this.appListView = new TypeListView({

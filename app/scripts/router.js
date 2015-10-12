@@ -1,9 +1,12 @@
 import ItemCollection from 'models/item-collection';
+import order from 'models/order';
 import IndexView from 'views/index';
+import OrderView from 'views/order';
 
 var AppRouter = Backbone.Router.extend({
     routes: {
-        '': 'index'
+        '': 'index',
+        'order': 'order',
     },
 
     initialize: function() {
@@ -17,6 +20,17 @@ var AppRouter = Backbone.Router.extend({
         });
         this.items.fetch();
         this.showView(view);
+
+    },
+
+    order: function() {
+        if (!this.orderView) {
+            var view = new OrderView({
+                model: order
+            });
+            this.orderView = view;
+            $('#container').append(view.render().el);
+        }
 
     },
 

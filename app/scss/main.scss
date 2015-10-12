@@ -1,5 +1,6 @@
 @import '../../bower_components/bourbon/app/assets/stylesheets/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
+@import '../../bower_components/font-awesome/scss/font-awesome';
 // Typography
 $base-font-family: $helvetica;
 // Colors
@@ -16,36 +17,132 @@ body {
     font-family: $base-font-family;
 }
 
-.type-list {
-	ul {
-		height: 0;
-		overflow: hidden;
-	}
-
-	&.active {
-		ul {
-			height: auto;
-			overflow: visible;
-		}
-	}
+.index-view {
+    float: left;
 }
 
+//-----------------Product Types-------------------//
+.type-list {
+    position: relative;
+    margin: 20px 0;
+    max-width: 400px;
+    .fa-plus,
+    .fa-minus {
+        position: absolute;
+        right: 20px;
+        opacity: 0;
+        cursor: pointer;
+        top: 12px;
+    }
+    &:hover .fa-plus {
+        opacity: 1;
+    }
+    h1 {
+        margin: 0;
+    }
+    ul {
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, margin 0.5s ease-in-out;
+    }
+    &.active {
+        ul {
+            margin-top: 20px;
+            max-height: 500px;
+            transition: max-height 0.5s ease-in-out;
+        }
+    }
+    &.active:hover .fa-plus {
+        opacity: 0;
+    }
+    &.active:hover .fa-minus {
+        opacity: 1;
+    }
+}
+
+//------------------Menu List Items-------------------//
 .menu-list-item {
+    position: relative;
     list-style: none;
+    max-width: 400px;
+    border-top: 1px solid black;
+    cursor: pointer;
     .menu-list-item-price,
     .menu-list-item-description,
-    .menu-list-item-type, 
+    .menu-list-item-type,
     .buttons {
-        height: 0;
+        margin: 0;
+        max-height: 0;
         overflow: hidden;
+        transition: max-height 0.5s ease-in-out, margin 0.5s ease-in-out;
+    }
+    .menu-list-item-title {
+        text-align: center;
+        margin: 4px 0;
+        font-size: 20px;
+    }
+    .menu-list-item-price {
+        float: left;
+    }
+    .menu-list-item-add {
+        float: right;
+        width: 75px;
+        border: none;
+        color: white;
+        background: black;
+        margin-bottom: 10px;
+    }
+    .fa-times {
+        position: absolute;
+        right: 30px;
+        top: 10px;
+        opacity: 0;
+        cursor: pointer;
+    }
+    &:last-child {
+        border-bottom: 1px solid black;
     }
     &.detailed {
+        cursor: default;
         .menu-list-item-price,
         .menu-list-item-description,
         .menu-list-item-type,
-        .buttons{
-            height: auto;
-            overflow: visible;
+        .buttons {
+            max-height: 60px;
+            transition: max-height 0.5s ease-in-out;
+        }
+    }
+    &.detailed .menu-list-item-description {
+        margin: 10px 0;
+    }
+    &.detailed .fa-times {
+        opacity: 1;
+    }
+}
+
+//----------------------Order View-------------------//
+.order-view {
+    float: right;
+    min-width: 300px;
+    .order-title,
+    .order-total {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+    .order-item {
+    	position: relative;
+        font-size: 14px;
+        padding-left: 20px;
+        .fa-minus {
+            position: absolute;
+            left: 0px;
+            top: 2px;
+            opacity: 0;
+            cursor: pointer;	
+        }
+        &:hover .fa-minus {
+        	opacity: 1;
         }
     }
 }
