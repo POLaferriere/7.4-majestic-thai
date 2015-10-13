@@ -213,7 +213,7 @@ body {
 //----------------Checkout-View-----------------//
 .checkout-view {
     @include clearfix();
-    position: absolute;
+    position: fixed;
     background: rgba(0, 0, 0, 0.8);
     top: 0;
     right: 0;
