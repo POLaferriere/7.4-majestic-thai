@@ -2,6 +2,7 @@ var Order = Backbone.Model.extend({
 	defaults: function() {
 		return {
 			orders: [],
+			isOrder: true,
 		};
 	},
 
@@ -10,15 +11,9 @@ var Order = Backbone.Model.extend({
 
 	},
 
-	removeItem: function(name) {
-		var self = this;
-		var orders = self.get('orders');
-		orders.splice(_.findIndex(orders, function(model) {
-            return model.get('name') === name;
-        }), 1);
-        debugger;
-        this.set('orders', orders);
-	}
+	urlRoot: 'http://tiny-lasagna-server.herokuapp.com/collections/aaronrestaurant',
+
+	idAttribute: '_id',
 });
 
 var order = new Order();

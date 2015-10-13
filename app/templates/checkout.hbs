@@ -1,0 +1,17 @@
+<div class="checkout-container">
+<h1 class="checkout-title">Please review your order</h1>
+
+{{#each this}}
+<h3 class="checkout-item"><span class="name">{{name}}</span><span class="price">${{price}}</span></h3>
+{{/each}}
+
+<p class="checkout-subtotal"><span class="subtotal-text">Subtotal:</span><span class="subtotal"></span></p>
+<p class="checkout-tax"><span class="tax-text">Tax: </span><span class="tax"></span></p>
+
+<h3 class="checkout-total"><span class="total-text">Total: </span><span class="total"></span></h3>
+
+<div class="buttons">
+	<button class="back">Continue Ordering</button>
+	<button class="confirm">Confirm Order</button>
+</div>
+</div>

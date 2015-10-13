@@ -1,6 +1,7 @@
 @import '../../bower_components/bourbon/app/assets/stylesheets/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 @import '../../bower_components/font-awesome/scss/font-awesome';
+@import url(https://fonts.googleapis.com/css?family=Courgette);
 // Typography
 $base-font-family: $helvetica;
 // Colors
@@ -17,6 +18,18 @@ body {
     font-family: $base-font-family;
 }
 
+.main-title {
+	font-family: "Courgette", cursive;
+	text-align: center;
+	font-size: 40px;
+	margin: 200px 0 20px 0;
+}
+
+.divider-bar {
+	background: black;
+	height: 50px;
+}
+
 .index-view {
     float: left;
 }
@@ -24,8 +37,14 @@ body {
 //-----------------Product Types-------------------//
 .type-list {
     position: relative;
-    margin: 20px 0;
+    margin: 40px 0 0 100px;
     max-width: 400px;
+    &:first-child {
+    	margin-top: 80px;
+    }
+    .type-title {
+    	font-family: "Courgette", cursive;
+    }
     .fa-plus,
     .fa-minus {
         position: absolute;
@@ -92,6 +111,8 @@ body {
         color: white;
         background: black;
         margin-bottom: 10px;
+    	font-family: "Courgette", cursive;
+    	box-shadow: -3px 3px 5px grey;
     }
     .fa-times {
         position: absolute;
@@ -124,25 +145,141 @@ body {
 //----------------------Order View-------------------//
 .order-view {
     float: right;
-    min-width: 300px;
-    .order-title,
-    .order-total {
+    min-width: 230px;
+    margin: 40px 40px 0 0;
+    .order-title {
+        text-align: center;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
+    	font-family: "Courgette", cursive;
     }
     .order-item {
-    	position: relative;
+        position: relative;
         font-size: 14px;
         padding-left: 20px;
+        .name {
+            display: inline-block;
+            width: 150px;
+        }
         .fa-minus {
             position: absolute;
             left: 0px;
             top: 2px;
             opacity: 0;
-            cursor: pointer;	
+            cursor: pointer;
         }
         &:hover .fa-minus {
-        	opacity: 1;
+            opacity: 1;
         }
+    }
+    .order-subtotal {
+        border-top: 1px solid black;
+        padding: 15px 0 0 0;
+        margin: 0;
+        .subtotal-text {
+            display: inline-block;
+            width: 170px;
+        }
+    }
+    .order-tax {
+        margin: 0 0 15px 0;
+        .tax-text {
+            display: inline-block;
+            width: 170px;
+        }
+    }
+    .order-total {
+        margin: 0;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+        .total-text {
+            display: inline-block;
+            width: 170px;
+        }
+    }
+    .order-confirm {
+    	margin-top: 10px;
+        display: inline-block;
+        background: black;
+        color: white;
+        width: 100%;
+        border: none;
+    	font-family: "Courgette", cursive;
+    	box-shadow: -3px 3px 5px grey;
+
+    }
+}
+
+//----------------Checkout-View-----------------//
+.checkout-view {
+    @include clearfix();
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.checkout-container {
+    position: absolute;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    .checkout-title {
+    	font-family: "Courgette", cursive;
+    }
+    .checkout-item{
+    	.price {
+    		display: inline-block;
+    		float: right;
+    	}
+    }
+    .checkout-subtotal {
+    	border-top: 1px solid black;
+    	margin: 0;
+		.subtotal {
+			display: inline-block;
+			float: right
+		}
+    }
+    .checkout-tax {
+    	border-bottom: 1px solid black;
+    	margin: 0;
+		 .tax {
+        	display: inline-block;
+        	float: right;
+        }
+    }
+    .checkout-total {
+		.total {
+			display: inline-block;
+			float: right;
+		}
+    }
+    .buttons {
+    	text-align: center;
+    	font-family: "Courgette", cursive;
+    	button {
+    		width: 45%;
+    		line-height: 26px;
+    	}
+    	.back {
+    		background: rgba(200, 200, 200, 1);
+    		color: black;
+    		border: none;
+    	box-shadow: -3px 3px 5px grey;
+
+    	}
+    	.confirm {
+    		background: black;
+    		color: white;
+    		border: none;
+    	box-shadow: -3px 3px 5px grey;
+    		
+    	}
     }
 }

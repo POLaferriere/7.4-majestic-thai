@@ -8,4 +8,11 @@ function mapToJSON(array) {
 	});
 }
 
-export {capitalizeFirstLetter, mapToJSON};
+function mapPrices(array) {
+	var arr = _.map(array, function(model){
+		model.price = (model.price/100).toFixed(2);
+	});
+	return arr;
+}
+
+export {capitalizeFirstLetter, mapToJSON, mapPrices};

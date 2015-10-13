@@ -1,7 +1,12 @@
 <h1 class="order-title">Your Order</h1>
 
 {{#each this}}
-<h3 class="order-item">{{name}}<i class="fa fa-minus"></i></h3>
+<h3 class="order-item"><span class="name">{{name}}</span><i class="fa fa-minus"></i><span class="price">${{price}}</span></h3>
 {{/each}}
 
-<p class="order-total">Order total: $<span class="total"></span></p>
+<p class="order-subtotal"><span class="subtotal-text">Subtotal:</span><span class="subtotal"></span></p>
+<p class="order-tax"><span class="tax-text">Tax: </span><span class="tax"></span></p>
+
+<h3 class="order-total"><span class="total-text">Total: </span><span class="total"></span></h3>
+
+<a href="#checkout"><button class="order-confirm">Go To Checkout</button></a>

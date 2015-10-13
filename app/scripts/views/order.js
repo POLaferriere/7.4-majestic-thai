@@ -1,7 +1,7 @@
 import BaseView from 'views/base-view';
 import order from 'models/order';
 import {
-    mapToJSON
+    mapToJSON, mapPrices
 }
 from 'functions';
 
@@ -19,9 +19,17 @@ var OrderView = BaseView.extend({
     },
 
     render: function() {
-    	console.log('rendered');
-        this.$el.html(this.template(mapToJSON(this.model.get('orders'))));
-        this.$('.total').text((this.orderTotal(order) / 100).toFixed(2));
+    	var orderJSON = mapToJSON(this.model.get('orders'));
+    	mapPrices(orderJSON);
+        this.$el.html(this.template(orderJSON));
+        this.$('.subtotal').text('$' + (this.orderTotal(order) / 100).toFixed(2));
+        this.$('.tax').text('$' + (this.orderTotal(order) / 100 * 0.07).toFixed(2));
+        var total = Number((this.orderTotal(order) / 100).toFixed(2)) + Number((this.orderTotal(order) / 100 * 0.07).toFixed(2));
+        this.$('.total').text('$' + total.toFixed(2));
+
+        this.model.set('subtotal', (this.orderTotal(order)/100).toFixed(2));
+        this.model.set('total', total);
+        
         return this;
     },
 
@@ -41,7 +49,6 @@ var OrderView = BaseView.extend({
     },
 
     orderTotal: function(order) {
-        // debugger;
         var total = _.reduce(_.pluck(mapToJSON(this.model.get('orders')), 'price'), function(a, b) {
             return Number(a) + Number(b);
         });

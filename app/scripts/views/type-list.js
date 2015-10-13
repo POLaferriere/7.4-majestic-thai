@@ -14,6 +14,7 @@ var TypeListView = BaseView.extend({
     template: JST['type-list'],
 
     events: {
+    	'click .type-title': 'activate',
     	'click .fa-plus': 'activate',
     	'click .fa-minus': 'activate',
     },

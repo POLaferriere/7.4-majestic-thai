@@ -2,11 +2,14 @@ import ItemCollection from 'models/item-collection';
 import order from 'models/order';
 import IndexView from 'views/index';
 import OrderView from 'views/order';
+import CheckoutView from 'views/checkout';
 
 var AppRouter = Backbone.Router.extend({
     routes: {
         '': 'index',
+        'index': 'index',	
         'order': 'order',
+        'checkout': 'checkout'
     },
 
     initialize: function() {
@@ -14,10 +17,16 @@ var AppRouter = Backbone.Router.extend({
     },
 
     index: function() {
-
+        if (this.orderView) {
+            this.orderView.remove();
+        }
+        if (this.checkoutView) {
+            this.checkoutView.remove();
+        }
         var view = new IndexView({
             collection: this.items
         });
+        this.items.reset();
         this.items.fetch();
         this.showView(view);
 
@@ -31,6 +40,15 @@ var AppRouter = Backbone.Router.extend({
             this.orderView = view;
             $('#container').append(view.render().el);
         }
+
+    },
+
+    checkout: function() {
+        var view = new CheckoutView({
+            model: order
+        });
+        this.checkoutView = view;
+        $('#container').append(view.render().el);
 
     },
 
